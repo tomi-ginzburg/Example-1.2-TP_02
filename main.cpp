@@ -36,11 +36,12 @@ int main()
    while (true) {
       
       if ( gasDetector || overTempDetector ) {
-         
          /* Lo que se esta haciendo al usar el operador = es utilizar el metodo write de la clase DigitalOut
           * Este a su vez usa la funcion gpio_write que directamente escribe sobre los registros para poner los valores correspondientes en la salida del pin
           */
          alarmLed = ON;
+         printf("Gas: %d\n", gasDetector.read());
+         printf("Temperatura: %d\n", overTempDetector.read());
       } else {
          alarmLed = OFF;
       }
